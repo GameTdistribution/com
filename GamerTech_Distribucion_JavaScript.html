@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GamerTech Distribución - Proyecto universitario INF-5210 de gestión y distribución organizada de recursos tecnológicos.">
+    <meta name="author" content="Enjee De Vargas Ruiz, Joendy Javier Genao">
+    <title>GamerTech Distribución</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="bg-dark text-light">
+
+    <!-- Barra de Navegación Responsive con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-secondary shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-info" href="#inicio">GamerTech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyecto">Proyecto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recursos">Recursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#entregables">Entregables</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <!-- Controles de Acceso / Login -->
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0 d-flex align-items-center">
+                        <button type="button" id="btnAbrirLogin" class="btn btn-outline-info btn-sm px-3 fw-semibold" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                            👤 Iniciar Sesión
+                        </button>
+                        <span id="saludoUsuario" class="text-info small fw-semibold d-none"></span>
+                        <button type="button" id="btnCerrarSesion" class="btn btn-outline-danger btn-sm ms-2 d-none">Salir</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Principal / Portada con Acordeones -->
+    <header class="container my-5 py-4 bg-slate rounded-4 shadow-lg">
+        <div class="text-center p-2 mb-4">
+            <h2 class="text-primary-emphasis fw-bold">Universidad Autónoma de Santo Domingo</h2>
+            <h3 class="text-secondary">Proyecto de Informática</h3>
+            <h1 class="display-5 fw-bold text-info mt-3">GamerTech Distribución</h1>
+            <p class="lead text-light fw-semibold">Distribución organizada de recursos tecnológicos para gamers</p>
+        </div>
+
+        <!-- Acordeón de Datos de la Asignatura y Participantes (Con data-bs-theme="dark" nativo) -->
+        <div class="accordion px-md-4" id="acordeonPortada" data-bs-theme="dark">
+            
+            <!-- Item 1: Detalles de la Asignatura -->
+            <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingAsignatura">
+                    <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAsignatura" aria-expanded="false" aria-controls="collapseAsignatura">
+                        📋 Ver detalles de la Asignatura y Tutor
+                    </button>
+                </h2>
+                <div id="collapseAsignatura" class="accordion-collapse collapse" aria-labelledby="headingAsignatura" data-bs-parent="#acordeonPortada">
+                    <div class="accordion-body">
+                        <p class="mb-1"><strong>Asignatura:</strong> Proyecto de informática INF – 5210</p>
+                        <p class="mb-1"><strong>Tutor/a:</strong> Hairon Reyes</p>
+                        <p class="mb-0"><strong>Fecha:</strong> 24/9/2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Participantes -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingParticipantes">
+                    <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseParticipantes" aria-expanded="false" aria-controls="collapseParticipantes">
+                        👥 Ver participantes del proyecto
+                    </button>
+                </h2>
+                <div id="collapseParticipantes" class="accordion-collapse collapse" aria-labelledby="headingParticipantes" data-bs-parent="#acordeonPortada">
+                    <div class="accordion-body">
+                        <p class="mb-1"><strong>ENJEE De Vargas Ruiz</strong> – 100745833</p>
+                        <p class="mb-0"><strong>Joendy Javier Genao</strong> – 100616747</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2>Bienvenidos a GamerTech Distribución</h2>
+            <p>GamerTech Distribución es un proyecto orientado a organizar la distribución eficiente de recursos tecnológicos para gamers.</p>
+            <p>El proyecto busca identificar las necesidades de los usuarios y asignar recursos tecnológicos de manera ordenada, transparente y controlada.</p>
+            <button type="button" id="btnBienvenida" class="btn btn-info fw-semibold">Mostrar mensaje de bienvenida</button>
+            <p id="mensajeBienvenida" class="mensaje mt-3" aria-live="polite"></p>
+        </section>
+
+        <!-- Sección Proyecto con Tarjetas -->
+        <section id="proyecto" class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2 class="mb-4">Información del proyecto</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 bg-dark border-secondary text-light shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 text-info">Objetivo general</h3>
+                            <p class="card-text small">Establecer un proceso ordenado, trazable y verificable para identificar necesidades, administrar inventario, adquirir o gestionar recursos y ejecutar una distribución piloto orientada a gamers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 bg-dark border-secondary text-light shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 text-info">Duración estimada</h3>
+                            <p class="card-text">12 semanas de planificación y ejecución técnica.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 bg-dark border-secondary text-light shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 text-info">Alcance</h3>
+                            <p class="card-text small">Incluye levantamiento, clasificación de recursos, definición de criterios, diseño de inventario, distribución, adquisición, pruebas y un informe final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Recursos con Marcas y Modelos en Acordeón -->
+        <section id="recursos" class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2>Recursos tecnológicos</h2>
+            <p>Escribe el nombre de un recurso o despliega cada uno para ver sus marcas y modelos recomendados:</p>
+            <input type="search" id="buscarRecurso" class="form-control bg-dark text-light border-secondary mb-3" placeholder="Ej.: monitor, teclado..." aria-label="Buscar recurso tecnológico">
+            
+            <!-- Acordeón de Recursos (Con data-bs-theme="dark" nativo) -->
+            <div class="accordion" id="listaRecursos" data-bs-theme="dark">
+                
+                <!-- 1. Computadoras -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingComputadoras">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComputadoras" aria-expanded="false" aria-controls="collapseComputadoras">
+                            💻 Computadoras (PCs Gamer / Laptops)
+                        </button>
+                    </h3>
+                    <div id="collapseComputadoras" class="accordion-collapse collapse" aria-labelledby="headingComputadoras" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>ASUS:</strong> ROG Strix GA15 y TUF Gaming F15</li>
+                                <li><strong>Lenovo:</strong> Legion Pro 5 y IdeaPad Gaming 3</li>
+                                <li><strong>MSI:</strong> Katana 15 y Aegis RS Desktop</li>
+                                <li><strong>HP:</strong> Omen 16 y Victus 15</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Monitores -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingMonitores">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonitores" aria-expanded="false" aria-controls="collapseMonitores">
+                            🖥️ Monitores
+                        </button>
+                    </h3>
+                    <div id="collapseMonitores" class="accordion-collapse collapse" aria-labelledby="headingMonitores" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>LG:</strong> UltraGear 24GS60F y 27GP850</li>
+                                <li><strong>ASUS:</strong> ROG Swift PG27AQDP y TUF Gaming VG27AQ</li>
+                                <li><strong>AOC:</strong> Q27G4X y 24G2SP</li>
+                                <li><strong>Gigabyte:</strong> GS27QA y M27Q</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Teclados -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingTeclados">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTeclados" aria-expanded="false" aria-controls="collapseTeclados">
+                            ⌨️ Teclados
+                        </button>
+                    </h3>
+                    <div id="collapseTeclados" class="accordion-collapse collapse" aria-labelledby="headingTeclados" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>Razer:</strong> BlackWidow V4 Pro y Huntsman V2</li>
+                                <li><strong>Logitech:</strong> G Pro X y G915 LIGHTSPEED</li>
+                                <li><strong>Corsair:</strong> K100 RGB y K70 RGB TKL</li>
+                                <li><strong>SteelSeries:</strong> Apex Pro y Apex 7 TKL</li>
+                                <li><strong>HyperX:</strong> Alloy Origins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Mouse -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingMouse">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMouse" aria-expanded="false" aria-controls="collapseMouse">
+                            🖱️ Mouse
+                        </button>
+                    </h3>
+                    <div id="collapseMouse" class="accordion-collapse collapse" aria-labelledby="headingMouse" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>Logitech:</strong> G PRO X SUPERLIGHT 2 y G502 HERO</li>
+                                <li><strong>Razer:</strong> Basilisk V3 Pro y DeathAdder V4 Pro</li>
+                                <li><strong>HyperX:</strong> Pulsefire Haste 2 Mini</li>
+                                <li><strong>SteelSeries:</strong> Aerox 3 Wireless</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Audífonos -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingAudifonos">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAudifonos" aria-expanded="false" aria-controls="collapseAudifonos">
+                            🎧 Audífonos
+                        </button>
+                    </h3>
+                    <div id="collapseAudifonos" class="accordion-collapse collapse" aria-labelledby="headingAudifonos" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>HyperX:</strong> Cloud II y Cloud III</li>
+                                <li><strong>SteelSeries:</strong> Arctis Nova Pro Wireless y Arctis 5</li>
+                                <li><strong>Razer:</strong> BlackShark V2 Pro y Kraken Kitty</li>
+                                <li><strong>Audeze:</strong> Maxwell Wireless</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Routers -->
+                <div class="accordion-item mb-2">
+                    <h3 class="accordion-header" id="headingRouters">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRouters" aria-expanded="false" aria-controls="collapseRouters">
+                            🌐 Routers
+                        </button>
+                    </h3>
+                    <div id="collapseRouters" class="accordion-collapse collapse" aria-labelledby="headingRouters" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>ASUS:</strong> ROG Rapture GT-AXE16000 y RT-AX86U Pro</li>
+                                <li><strong>TP-Link:</strong> Archer AXE75 y Archer BE800 (Wi-Fi 7)</li>
+                                <li><strong>Netgear:</strong> Nighthawk Pro Gaming XR1000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Software de inventario -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingSoftware">
+                        <button class="accordion-button collapsed fw-semibold text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSoftware" aria-expanded="false" aria-controls="collapseSoftware">
+                            📊 Software de inventario
+                        </button>
+                    </h3>
+                    <div id="collapseSoftware" class="accordion-collapse collapse" aria-labelledby="headingSoftware" data-bs-parent="#listaRecursos">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li><strong>Odoo:</strong> Módulo de Inventario ERP</li>
+                                <li><strong>Snipe-IT:</strong> Sistema open-source de gestión de activos de TI</li>
+                                <li><strong>Katana Cloud Inventory:</strong> Control de manufactura y distribución</li>
+                                <li><strong>Zoho Inventory:</strong> Gestión de almacén y pedidos en línea</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="sinResultados" class="mensaje mt-3" aria-live="polite"></p>
+        </section>
+
+        <!-- Sección Entregables -->
+        <section id="entregables" class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2>Entregables del proyecto</h2>
+            <ol class="list-group list-group-numbered bg-transparent">
+                <li class="list-group-item bg-transparent text-light border-0">Diagnóstico de necesidades</li>
+                <li class="list-group-item bg-transparent text-light border-0">Inventario tecnológico</li>
+                <li class="list-group-item bg-transparent text-light border-0">Modelo de distribución</li>
+                <li class="list-group-item bg-transparent text-light border-0">Plan de adquisiciones</li>
+                <li class="list-group-item bg-transparent text-light border-0">Prueba piloto</li>
+                <li class="list-group-item bg-transparent text-light border-0">Informe final</li>
+            </ol>
+        </section>
+
+        <!-- Proceso del proyecto -->
+        <section class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2 class="mb-4">Proceso del proyecto</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark h-100">
+                        <h3 class="h5 text-info">1. Identificación de necesidades</h3>
+                        <p class="small mb-0">Se recopila información sobre las necesidades tecnológicas de los gamers participantes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark h-100">
+                        <h3 class="h5 text-info">2. Inventario y clasificación</h3>
+                        <p class="small mb-0">Se registran y clasifican los recursos disponibles y requeridos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark h-100">
+                        <h3 class="h5 text-info">3. Distribución</h3>
+                        <p class="small mb-0">Se establecen criterios para asignar los recursos de forma organizada y transparente.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark h-100">
+                        <h3 class="h5 text-info">4. Prueba piloto</h3>
+                        <p class="small mb-0">Se aplica el proceso de distribución con un grupo limitado de usuarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aside / Información Adicional -->
+        <aside class="p-4 mb-4 bg-slate rounded-3 shadow">
+            <h2>Información adicional</h2>
+            <p>El proyecto contempla una prueba piloto y una duración estimada de 12 semanas.</p>
+            <h3 class="h5 text-info mt-3">Equipo del proyecto</h3>
+            <ul class="mb-0">
+                <li>Project Manager: Enjee De Vargas</li>
+                <li>Program Manager: Joendy Javier Genao</li>
+                <li>Equipo técnico y analistas</li>
+                <li>Responsables de adquisiciones y logística</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Sección de Contacto y Formulario -->
+    <section id="contacto" class="container p-4 mb-5 bg-slate rounded-3 shadow">
+        <h2>Contacto</h2>
+        <p>Proyecto universitario de informática INF-5210.</p>
+        <p>GamerTech Distribución - Septiembre 2026</p>
+        <hr class="border-secondary">
+        <h3 class="h5 text-info">Información de contacto de los participantes</h3>
+        <p><strong>Enjee De Vargas</strong><br>
+            Correo: <a href="mailto:ir3912292@gmail.com" class="text-info">ir3912292@gmail.com</a><br>
+            Teléfono: 809-812-0825
+        </p>
+        <p><strong>Joendy Javier Genao</strong><br>
+            Correo: <a href="mailto:joendi28@outlook.com" class="text-info">joendi28@outlook.com</a><br>
+            Teléfono: 829-685-6571
+        </p>
+
+        <h3 class="mt-4">Formulario de contacto</h3>
+        <p class="small text-muted">Completa los campos para probar las validaciones de JavaScript.</p>
+        
+        <form id="formContacto" novalidate>
+            <div class="mb-3">
+                <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" class="form-control bg-dark text-light border-secondary" placeholder="Escribe tu nombre" required minlength="3" aria-describedby="errorNombre">
+                <small class="error text-danger" id="errorNombre" role="alert"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="correo" class="form-label fw-semibold">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" class="form-control bg-dark text-light border-secondary" placeholder="ejemplo@correo.com" required aria-describedby="errorCorreo">
+                <small class="error text-danger" id="errorCorreo" role="alert"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefono" class="form-label fw-semibold">Teléfono (10 dígitos)</label>
+                <input type="tel" id="telefono" name="telefono" class="form-control bg-dark text-light border-secondary" placeholder="8091234567" inputmode="numeric" required aria-describedby="errorTelefono">
+                <small class="error text-danger" id="errorTelefono" role="alert"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="motivo" class="form-label fw-semibold">Motivo del mensaje</label>
+                <select id="motivo" name="motivo" class="form-select bg-dark text-light border-secondary" required aria-describedby="errorMotivo">
+                    <option value="">Selecciona una opción</option>
+                    <option value="informacion">Solicitar información</option>
+                    <option value="recursos">Consulta sobre recursos tecnológicos</option>
+                    <option value="colaboracion">Proponer colaboración</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <small class="error text-danger" id="errorMotivo" role="alert"></small>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensaje" class="form-label fw-semibold">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="4" class="form-control bg-dark text-light border-secondary" placeholder="Escribe tu mensaje (mínimo 10 caracteres)" required minlength="10" aria-describedby="errorMensaje"></textarea>
+                <small class="error text-danger" id="errorMensaje" role="alert"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Validar y enviar</button>
+            <button type="reset" class="btn btn-secondary">Limpiar formulario</button>
+            <p id="resultadoFormulario" class="mensaje mt-3 fw-bold" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <!-- Modal de confirmación de Bootstrap -->
+    <div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border border-info">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-info" id="tituloModal">¡Formulario Enviado!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <p>Tus datos han sido validados correctamente y se guardó una copia localmente en tu navegador.</p>
+                </div>
+                <div class="modal-footer border-secondary justify-content-center">
+                    <button type="button" class="btn btn-info px-4" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="tituloModalLogin" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border border-info">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-info" id="tituloModalLogin">🔐 Acceso a GamerTech</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <form id="formLogin" novalidate>
+                        <div class="mb-3">
+                            <label for="loginCorreo" class="form-label fw-semibold">Correo electrónico</label>
+                            <input type="email" id="loginCorreo" class="form-control bg-dark text-light border-secondary" placeholder="usuario@dominio.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label fw-semibold">Contraseña</label>
+                            <input type="password" id="loginPassword" class="form-control bg-dark text-light border-secondary" placeholder="••••••••" required>
+                        </div>
+                        <p id="mensajeLoginGlobal" class="small text-danger fw-semibold mb-2" aria-live="polite"></p>
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-info fw-semibold text-dark">Entrar al Sistema</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-secondary py-4 container">
+        <p class="mb-1">&copy; 2026 GamerTech Distribución. Proyecto universitario.</p>
+        <p id="estadoPagina" class="small"></p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
